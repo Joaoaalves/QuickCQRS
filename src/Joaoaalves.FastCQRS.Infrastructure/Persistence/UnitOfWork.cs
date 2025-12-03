@@ -1,4 +1,5 @@
 using Joaoaalves.FastCQRS.Application.Execution;
+using Joaoaalves.FastCQRS.Domain.DDD;
 using Joaoaalves.FastCQRS.Infrastructure.Persistence.Context;
 using Joaoaalves.FastCQRS.Infrastructure.Processing;
 
@@ -18,7 +19,7 @@ namespace Joaoaalves.FastCQRS.Infrastructure.Persistence
 
         public Task RevertAsync()
         {
-            foreach (var entry in _context.ChangeTracker.Entries())
+            foreach (var entry in _context.ChangeTracker.Entries<Entity>())
             {
                 switch (entry.State)
                 {
