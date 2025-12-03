@@ -21,6 +21,7 @@
   <ItemGroup>
     <ProjectReference Include="..\..\src\Joaoaalves.FastCQRS.Application\Joaoaalves.FastCQRS.Application.csproj" />
     <ProjectReference Include="..\..\src\Joaoaalves.FastCQRS.Domain\Joaoaalves.FastCQRS.Domain.csproj" />
+    <ProjectReference Include="..\Joaoaalves.FastCQRS.Domain.Tests\Joaoaalves.FastCQRS.Domain.Tests.csproj" />
   </ItemGroup>
 
 </Project>
