@@ -10,8 +10,6 @@ namespace Joaoaalves.FastCQRS.Infrastructure.Tests.Fakes
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
             base.OnModelCreating(modelBuilder);
-            // Optionally: Apply configurations
-            // modelBuilder.ApplyConfigurationsFromAssembly(typeof(FakeDbContext<T>).Assembly);
         }
     }
 
