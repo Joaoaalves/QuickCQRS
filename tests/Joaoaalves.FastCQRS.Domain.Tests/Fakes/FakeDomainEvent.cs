@@ -1,4 +1,4 @@
-using Joaoaalves.FastCQRS.Domain.DDD;
+using Joaoaalves.DDD.Events;
 
 namespace Joaoaalves.FastCQRS.Domain.Tests.Fakes
 {
