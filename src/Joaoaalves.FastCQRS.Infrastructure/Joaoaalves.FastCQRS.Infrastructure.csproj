@@ -22,7 +22,7 @@
 
   <PropertyGroup>
     <PackageId>Joaoaalves.FastCQRS.Infrastructure</PackageId>
-    <Version>0.0.1</Version>
+    <Version>0.0.2</Version>
     <Authors>João Alves</Authors>
     <Company>João Alves</Company>
     <Description>FastCQRS Adds CQRS, Mediator and DDD structure</Description>

@@ -21,7 +21,7 @@
 
   <PropertyGroup>
       <PackageId>Joaoaalves.FastCQRS.Application</PackageId>
-      <Version>0.0.1</Version>
+      <Version>0.0.2</Version>
       <Authors>João Alves</Authors>
       <Company>João Alves</Company>
       <Description>FastCQRS Adds CQRS, Mediator</Description>
