@@ -1,5 +1,5 @@
 using System.Text.Json.Serialization;
-using Joaoaalves.FastCQRS.Domain.DDD;
+using Joaoaalves.DDD.Events;
 
 namespace Joaoaalves.FastCQRS.Application.DomainEvents
 {

@@ -1,3 +1,4 @@
+using Joaoaalves.DDD.Common;
 using Joaoaalves.FastCQRS.Application.Execution;
 using Microsoft.EntityFrameworkCore;
 
