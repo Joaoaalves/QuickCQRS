@@ -1,7 +1,7 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
-    <TargetFramework>net9.0</TargetFramework>
+    <TargetFramework>net10.0</TargetFramework>
     <ImplicitUsings>enable</ImplicitUsings>
     <Nullable>enable</Nullable>
   </PropertyGroup>
@@ -11,9 +11,13 @@
       <Version>0.0.1</Version>
       <Authors>João Alves</Authors>
       <Company>João Alves</Company>
-      <Description>FastCQRS Adds CQRS, Mediator and DDD structure</Description>
-      <PackageTags>DDD; Domain; CQRS; Mediator;</PackageTags>
+      <Description>FastCQRS Adds CQRS, Mediator</Description>
+      <PackageTags>Domain; CQRS; Mediator;</PackageTags>
       <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
+
+      <RepositoryUrl>https://github.com/Joaoaalves/FastCQRS</RepositoryUrl>
+      <PackageProjectUrl>https://github.com/Joaoaalves/FastCQRS</PackageProjectUrl>
+      <RepositoryType>git</RepositoryType>
     </PropertyGroup>
 
 </Project>

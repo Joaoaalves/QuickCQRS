@@ -6,12 +6,16 @@
   </ItemGroup>
 
   <ItemGroup>
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Joaoaalves.DDD" Version="0.0.1" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore" Version="10.0.0" />
     <PackageReference Include="Microsoft.Extensions.Hosting" Version="10.0.0" />
-    <PackageReference Include="Microsoft.EntityFrameworkCore" Version="9.0.8" />
   </ItemGroup>
 
   <PropertyGroup>
-    <TargetFramework>net9.0</TargetFramework>
+    <TargetFramework>net10.0</TargetFramework>
     <ImplicitUsings>enable</ImplicitUsings>
     <Nullable>enable</Nullable>
   </PropertyGroup>
@@ -24,6 +28,10 @@
     <Description>FastCQRS Adds CQRS, Mediator and DDD structure</Description>
     <PackageTags>DDD; Infrastructure; CQRS; Mediator;</PackageTags>
     <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
+
+    <RepositoryUrl>https://github.com/Joaoaalves/FastCQRS</RepositoryUrl>
+    <PackageProjectUrl>https://github.com/Joaoaalves/FastCQRS</PackageProjectUrl>
+    <RepositoryType>git</RepositoryType>
   </PropertyGroup>
 
 </Project>

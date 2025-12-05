@@ -1,5 +1,8 @@
+using Joaoaalves.DDD.Common;
+using Joaoaalves.DDD.Events;
+using Joaoaalves.FastCQRS.Application.DomainEvents;
 using Joaoaalves.FastCQRS.Application.Execution;
-using Joaoaalves.FastCQRS.Domain.DDD;
+using Joaoaalves.FastCQRS.Domain.Notifications;
 using Microsoft.EntityFrameworkCore;
 
 namespace Joaoaalves.FastCQRS.Infrastructure.Processing
@@ -30,8 +33,18 @@ namespace Joaoaalves.FastCQRS.Infrastructure.Processing
 
             foreach (var domainEvent in domainEvents)
             {
-                await _mediator.Publish(domainEvent);
+                var notification = CreateNotification(domainEvent);
+
+                await _mediator.Publish(notification);
             }
+        }
+
+        private static INotification CreateNotification(IDomainEvent domainEvent)
+        {
+            var wrapperType = typeof(DomainNotificationBase<>)
+                .MakeGenericType(domainEvent.GetType());
+
+            return (INotification)Activator.CreateInstance(wrapperType, domainEvent)!;
         }
     }
 }
