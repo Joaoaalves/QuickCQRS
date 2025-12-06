@@ -17,7 +17,7 @@
 
     <PropertyGroup>
       <PackageId>Joaoaalves.FastCQRS.Persistence</PackageId>
-      <Version>0.0.2</Version>
+      <Version>0.0.3</Version>
       <Authors>João Alves</Authors>
       <Company>João Alves</Company>
       <Description>FastCQRS Adds CQRS, Mediator</Description>
