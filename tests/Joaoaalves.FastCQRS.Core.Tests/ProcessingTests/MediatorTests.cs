@@ -1,12 +1,12 @@
-using Joaoaalves.FastCQRS.Application.Queries;
-using Joaoaalves.FastCQRS.Domain.Notifications;
-using Joaoaalves.FastCQRS.Domain.Requests;
-using Joaoaalves.FastCQRS.Infrastructure.Processing;
-using Joaoaalves.FastCQRS.Infrastructure.Tests.Fakes;
+using Joaoaalves.FastCQRS.Abstractions.Notifications;
+using Joaoaalves.FastCQRS.Abstractions.Queries;
+using Joaoaalves.FastCQRS.Abstractions.Requests;
+using Joaoaalves.FastCQRS.Core.Processing;
+using Joaoaalves.FastCQRS.Core.Tests.Fakes;
 using Microsoft.Extensions.DependencyInjection;
 using Moq;
 
-namespace Joaoaalves.FastCQRS.Infrastructure.Tests.ProcessingTests
+namespace Joaoaalves.FastCQRS.Core.Tests.ProcessingTests
 {
 
     public class MediatorTests

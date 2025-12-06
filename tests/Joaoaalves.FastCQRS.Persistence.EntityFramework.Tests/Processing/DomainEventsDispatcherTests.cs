@@ -1,23 +1,27 @@
-using Joaoaalves.FastCQRS.Domain.Tests.Fakes;
-using Joaoaalves.FastCQRS.Infrastructure.Processing;
-using Joaoaalves.FastCQRS.Infrastructure.Tests.Builders;
-using Joaoaalves.FastCQRS.Infrastructure.Tests.Fakes;
 
-namespace Joaoaalves.FastCQRS.Infrastructure.Tests.ProcessingTests
+using Joaoaalves.FastCQRS.Abstractions.Processing;
+using Joaoaalves.FastCQRS.Core.Events;
+using Joaoaalves.FastCQRS.Core.Tests.Fakes;
+using Joaoaalves.FastCQRS.Persistence.EntityFramework.Adapters;
+using Joaoaalves.FastCQRS.Persistence.EntityFramework.Tests.Builders;
+using Joaoaalves.FastCQRS.Persistence.EntityFramework.Tests.Fakes;
+
+namespace Joaoaalves.FastCQRS.Persistence.EntityFramework.Tests.Processing
 {
     public class DomainEventsDispatcherTests
     {
         private readonly FakeDbContext<FakeEntity> _context;
-
+        private readonly IDomainEventsProvider provider;
         public DomainEventsDispatcherTests()
         {
             _context = DatabaseBuilder<FakeEntity>.InMemoryDatabase();
+            provider = new EFDomainEventsProvider(_context);
         }
 
         [Fact]
         public void Constructor_ShouldThrow_WhenMediatorIsNull()
         {
-            Assert.Throws<ArgumentNullException>(() => new DomainEventsDispatcher(null!, _context));
+            Assert.Throws<ArgumentNullException>(() => new DomainEventsDispatcher(null!, provider));
         }
 
         [Fact]
@@ -32,7 +36,7 @@ namespace Joaoaalves.FastCQRS.Infrastructure.Tests.ProcessingTests
         public async Task DispatchEventsAsync_ShouldDoNothing_WhenNoEntities()
         {
             var mediator = new FakeMediator();
-            var dispatcher = new DomainEventsDispatcher(mediator, _context);
+            var dispatcher = new DomainEventsDispatcher(mediator, provider);
 
             await dispatcher.DispatchEventsAsync();
 
@@ -43,7 +47,7 @@ namespace Joaoaalves.FastCQRS.Infrastructure.Tests.ProcessingTests
         public async Task DispatchEventsAsync_ShouldIgnoreEntitiesWithoutEvents()
         {
             var mediator = new FakeMediator();
-            var dispatcher = new DomainEventsDispatcher(mediator, _context);
+            var dispatcher = new DomainEventsDispatcher(mediator, provider);
 
             _context.Entities.Add(new FakeEntity());
             await _context.SaveChangesAsync();
@@ -57,7 +61,7 @@ namespace Joaoaalves.FastCQRS.Infrastructure.Tests.ProcessingTests
         public async Task DispatchEventsAsync_ShouldPublishDomainEvents_AndClearThem()
         {
             var mediator = new FakeMediator();
-            var dispatcher = new DomainEventsDispatcher(mediator, _context);
+            var dispatcher = new DomainEventsDispatcher(mediator, provider);
 
             var entity = new FakeEntity();
             entity.AddEvent(new FakeDomainEvent());

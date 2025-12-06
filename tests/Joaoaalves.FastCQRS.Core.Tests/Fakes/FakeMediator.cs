@@ -1,8 +1,9 @@
-using Joaoaalves.FastCQRS.Application.Execution;
-using Joaoaalves.FastCQRS.Domain.Notifications;
-using Joaoaalves.FastCQRS.Domain.Requests;
 
-namespace Joaoaalves.FastCQRS.Infrastructure.Tests.Fakes
+using Joaoaalves.FastCQRS.Abstractions.Notifications;
+using Joaoaalves.FastCQRS.Abstractions.Processing;
+using Joaoaalves.FastCQRS.Abstractions.Requests;
+
+namespace Joaoaalves.FastCQRS.Core.Tests.Fakes
 {
     public class FakeMediator : IMediator
     {

@@ -1,7 +1,8 @@
-using Joaoaalves.FastCQRS.Infrastructure.Tests.Fakes;
+
+using Joaoaalves.FastCQRS.Persistence.EntityFramework.Tests.Fakes;
 using Microsoft.EntityFrameworkCore;
 
-namespace Joaoaalves.FastCQRS.Infrastructure.Tests.Builders
+namespace Joaoaalves.FastCQRS.Persistence.EntityFramework.Tests.Builders
 {
     public static class DatabaseBuilder<T> where T : class
     {

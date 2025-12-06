@@ -1,10 +1,10 @@
 using FluentValidation;
-using Joaoaalves.FastCQRS.Application.Commands;
-using Joaoaalves.FastCQRS.Application.Tests.Fakes;
-using Joaoaalves.FastCQRS.Application.Validation;
+using Joaoaalves.FastCQRS.Abstractions.Commands;
+using Joaoaalves.FastCQRS.Abstractions.Exceptions;
+using Joaoaalves.FastCQRS.Core.Tests.Fakes;
+using Joaoaalves.FastCQRS.Core.Validation;
 
-
-namespace Joaoaalves.FastCQRS.Application.Tests.Validations
+namespace Joaoaalves.FastCQRS.Core.Tests.Validations
 {
     public class CommandValidationBehaviorTests
     {
@@ -44,7 +44,7 @@ namespace Joaoaalves.FastCQRS.Application.Tests.Validations
         {
             var validators = new List<IValidator<FakeCommand>> { new FakeCommandValidator() };
             var behavior = new CommandValidationBehavior<FakeCommand, Unit>(validators);
-            var command = new FakeCommand { Name = "" }; // inválido
+            var command = new FakeCommand { Name = "" }; // invalid
 
             var ex = await Assert.ThrowsAsync<InvalidCommandException>(() =>
                 behavior.Handle(command, () => Task.FromResult(Unit.Value), CancellationToken.None)

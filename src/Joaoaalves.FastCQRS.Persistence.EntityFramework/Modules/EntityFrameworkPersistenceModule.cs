@@ -1,3 +1,4 @@
+using Joaoaalves.FastCQRS.Abstractions.Processing;
 using Joaoaalves.FastCQRS.Persistence.Abstractions;
 using Joaoaalves.FastCQRS.Persistence.EntityFramework.Adapters;
 using Joaoaalves.FastCQRS.Persistence.Modules;
@@ -14,6 +15,7 @@ namespace Joaoaalves.FastCQRS.Persistence.EntityFramework.Modules
             services.AddScoped<IDatabaseContext, EFDatabaseContextAdapter>();
             services.AddUnitOfWork();
             services.AddScoped<DbContext, TDbContext>();
+            services.AddScoped<IDomainEventsProvider, EFDomainEventsProvider>();
             return services;
         }
     }

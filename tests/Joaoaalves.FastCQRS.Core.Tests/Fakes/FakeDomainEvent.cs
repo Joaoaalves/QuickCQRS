@@ -1,6 +1,6 @@
 using Joaoaalves.DDD.Events;
 
-namespace Joaoaalves.FastCQRS.Domain.Tests.Fakes
+namespace Joaoaalves.FastCQRS.Core.Tests.Fakes
 {
     public class FakeDomainEvent : IDomainEvent
     {

@@ -1,6 +1,7 @@
 using FluentValidation;
+using Joaoaalves.FastCQRS.Core.Tests.Fakes;
 
-namespace Joaoaalves.FastCQRS.Application.Tests.Fakes
+namespace Joaoaalves.FastCQRS.Core.Tests.Fakes
 {
     public class FakeCommandValidator : AbstractValidator<FakeCommand>
     {

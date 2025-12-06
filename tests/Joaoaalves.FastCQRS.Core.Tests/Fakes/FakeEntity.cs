@@ -2,7 +2,7 @@ using Joaoaalves.DDD.Common;
 using Joaoaalves.DDD.Events;
 using Joaoaalves.DDD.Rules;
 
-namespace Joaoaalves.FastCQRS.Domain.Tests.Fakes
+namespace Joaoaalves.FastCQRS.Core.Tests.Fakes
 {
     public class FakeEntity : Entity
     {

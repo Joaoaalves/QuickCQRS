@@ -1,9 +1,9 @@
-using Joaoaalves.FastCQRS.Application.Commands;
-using Joaoaalves.FastCQRS.Application.Execution;
-using Joaoaalves.FastCQRS.Infrastructure.Persistence;
+using Joaoaalves.FastCQRS.Abstractions.Commands;
+using Joaoaalves.FastCQRS.Abstractions.Processing;
 using Microsoft.Extensions.DependencyInjection;
 using Moq;
-namespace Joaoaalves.FastCQRS.Infrastructure.Tests.ProcessingTests
+
+namespace Joaoaalves.FastCQRS.Persistence.Tests
 {
     public class UnitOfWorkPipelineBehaviorTests
     {

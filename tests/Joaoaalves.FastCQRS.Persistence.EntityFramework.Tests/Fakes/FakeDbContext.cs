@@ -1,6 +1,6 @@
 using Microsoft.EntityFrameworkCore;
 
-namespace Joaoaalves.FastCQRS.Infrastructure.Tests.Fakes
+namespace Joaoaalves.FastCQRS.Persistence.EntityFramework.Tests.Fakes
 {
     public class FakeDbContext<T>(DbContextOptions<FakeDbContext<T>> options) : DbContext(options) where T : class
     {

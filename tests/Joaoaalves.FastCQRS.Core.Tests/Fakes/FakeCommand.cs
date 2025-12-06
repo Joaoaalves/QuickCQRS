@@ -1,7 +1,7 @@
-using Joaoaalves.FastCQRS.Application.Commands;
-using Joaoaalves.FastCQRS.Domain.Requests;
+using Joaoaalves.FastCQRS.Abstractions.Commands;
+using Joaoaalves.FastCQRS.Abstractions.Requests;
 
-namespace Joaoaalves.FastCQRS.Application.Tests.Fakes
+namespace Joaoaalves.FastCQRS.Core.Tests.Fakes
 {
     public class FakeCommand : IRequest<Unit>
     {

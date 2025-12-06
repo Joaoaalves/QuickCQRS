@@ -1,6 +1,6 @@
-using Joaoaalves.FastCQRS.Application.Validation;
+using Joaoaalves.FastCQRS.Abstractions.Exceptions;
 
-namespace Joaoaalves.FastCQRS.Application.Tests.Validations
+namespace Joaoaalves.FastCQRS.Core.Tests.Validations
 {
     public class InvalidCommandExceptionTests
     {

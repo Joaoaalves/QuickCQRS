@@ -1,39 +1,31 @@
-using Joaoaalves.DDD.Common;
 using Joaoaalves.DDD.Events;
 using Joaoaalves.FastCQRS.Abstractions.Notifications;
 using Joaoaalves.FastCQRS.Abstractions.Processing;
-using Microsoft.EntityFrameworkCore;
 
 namespace Joaoaalves.FastCQRS.Core.Events
 {
-    /// <summary>
-    /// Dispatches domain events collected from tracked entities.
-    /// </summary>
-    /// <param name="mediator">The mediator used to publish domain events.</param>
-    /// <param name="context">The database context from which domain events are collected.</param>
-    public class DomainEventsDispatcher(IMediator mediator, DbContext context) : IDomainEventsDispatcher
+    public class DomainEventsDispatcher(IMediator mediator, IDomainEventsProvider provider)
+        : IDomainEventsDispatcher
     {
-        private readonly IMediator _mediator = mediator ?? throw new ArgumentNullException(nameof(mediator));
-        private readonly DbContext _context = context ?? throw new ArgumentNullException(nameof(context));
+        private readonly IMediator _mediator = mediator
+            ?? throw new ArgumentNullException(
+                "Mediator was not provided for DomainEventsDispatcher"
+            );
 
-        /// <inheritdoc />
+        private readonly IDomainEventsProvider _provider = provider
+            ?? throw new ArgumentNullException(
+                "DomainEventsProvider was not provided for DomainEventsDispatcher"
+            );
+
         public async Task DispatchEventsAsync()
         {
-            var domainEntities = _context.ChangeTracker
-                .Entries<Entity>()
-                .Where(e => e.Entity.DomainEvents != null && e.Entity.DomainEvents.Count != 0)
-                .ToList();
+            var events = _provider.CollectDomainEvents();
 
-            var domainEvents = domainEntities
-                .SelectMany(e => e.Entity.DomainEvents!)
-                .ToList();
+            _provider.ClearCollectedDomainEvents();
 
-            domainEntities.ForEach(e => e.Entity.ClearDomainEvents());
-
-            foreach (var domainEvent in domainEvents)
+            foreach (var domainEvent in events)
             {
                 var notification = CreateNotification(domainEvent);
-
                 await _mediator.Publish(notification);
             }
         }

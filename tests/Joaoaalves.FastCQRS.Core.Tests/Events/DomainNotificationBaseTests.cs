@@ -1,8 +1,8 @@
 
-using Joaoaalves.FastCQRS.Application.DomainEvents;
-using Joaoaalves.FastCQRS.Domain.Tests.Fakes;
+using Joaoaalves.FastCQRS.Core.Events;
+using Joaoaalves.FastCQRS.Core.Tests.Fakes;
 
-namespace Joaoaalves.FastCQRS.Application.Tests.DomainEvents
+namespace Joaoaalves.FastCQRS.Core.Tests.Events
 {
     public class DomainNotificationBaseTests
     {

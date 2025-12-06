@@ -1,13 +1,12 @@
-
-using Joaoaalves.FastCQRS.Domain.Tests.Fakes;
-using Joaoaalves.FastCQRS.Infrastructure.Persistence;
-using Joaoaalves.FastCQRS.Infrastructure.Processing;
-using Joaoaalves.FastCQRS.Infrastructure.Tests.Builders;
-using Joaoaalves.FastCQRS.Infrastructure.Tests.Fakes;
+using Joaoaalves.FastCQRS.Abstractions.Processing;
+using Joaoaalves.FastCQRS.Core.Tests.Fakes;
+using Joaoaalves.FastCQRS.Persistence.EntityFramework.Adapters;
+using Joaoaalves.FastCQRS.Persistence.EntityFramework.Tests.Builders;
+using Joaoaalves.FastCQRS.Persistence.EntityFramework.Tests.Fakes;
 using Microsoft.EntityFrameworkCore;
 using Moq;
 
-namespace Joaoaalves.FastCQRS.Infrastructure.Tests.PersistenceTests
+namespace Joaoaalves.FastCQRS.Persistence.EntityFramework.Tests
 {
     public class UnitOfWorkTests
     {
@@ -25,7 +24,9 @@ namespace Joaoaalves.FastCQRS.Infrastructure.Tests.PersistenceTests
         {
             // Arrange
             _dispatcherMock.Setup(d => d.DispatchEventsAsync()).Returns(Task.CompletedTask);
-            var uow = new UnitOfWork(_context, _dispatcherMock.Object);
+            var adapter = new EFDatabaseContextAdapter(_context);
+            var uow = new UnitOfWork(adapter, _dispatcherMock.Object);
+
             _context.Entities.Add(new FakeEntity());
 
             // Act
@@ -41,7 +42,9 @@ namespace Joaoaalves.FastCQRS.Infrastructure.Tests.PersistenceTests
         public async Task RevertAsync_ShouldDetachAddedEntities()
         {
             // Arrange
-            var uow = new UnitOfWork(_context, _dispatcherMock.Object);
+            var adapter = new EFDatabaseContextAdapter(_context);
+            var uow = new UnitOfWork(adapter, _dispatcherMock.Object);
+
             var addedEntity = new FakeEntity("Added");
             _context.Entities.Add(addedEntity);
 
@@ -58,7 +61,9 @@ namespace Joaoaalves.FastCQRS.Infrastructure.Tests.PersistenceTests
         public async Task RevertAsync_ShouldResetModifiedEntitiesToUnchanged()
         {
             // Arrange
-            var uow = new UnitOfWork(_context, _dispatcherMock.Object);
+            var adapter = new EFDatabaseContextAdapter(_context);
+            var uow = new UnitOfWork(adapter, _dispatcherMock.Object);
+
             var modifiedEntity = new FakeEntity("Modified");
             _context.Entities.Add(modifiedEntity);
             await _context.SaveChangesAsync();
@@ -77,7 +82,9 @@ namespace Joaoaalves.FastCQRS.Infrastructure.Tests.PersistenceTests
         public async Task RevertAsync_ShouldResetDeletedEntitiesToUnchanged()
         {
             // Arrange
-            var uow = new UnitOfWork(_context, _dispatcherMock.Object);
+            var adapter = new EFDatabaseContextAdapter(_context);
+            var uow = new UnitOfWork(adapter, _dispatcherMock.Object);
+
             var deletedEntity = new FakeEntity("Deleted");
             _context.Entities.Add(deletedEntity);
             await _context.SaveChangesAsync();
@@ -95,7 +102,9 @@ namespace Joaoaalves.FastCQRS.Infrastructure.Tests.PersistenceTests
         public async Task RevertAsync_ShouldLeaveUnchangedEntitiesUnchanged()
         {
             // Arrange
-            var uow = new UnitOfWork(_context, _dispatcherMock.Object);
+            var adapter = new EFDatabaseContextAdapter(_context);
+            var uow = new UnitOfWork(adapter, _dispatcherMock.Object);
+
             var unchangedEntity = new FakeEntity("Unchanged");
             _context.Entities.Add(unchangedEntity);
             await _context.SaveChangesAsync();
@@ -112,7 +121,9 @@ namespace Joaoaalves.FastCQRS.Infrastructure.Tests.PersistenceTests
         public async Task RevertAsync_ShouldClearAllPendingChanges()
         {
             // Arrange
-            var uow = new UnitOfWork(_context, _dispatcherMock.Object);
+            var adapter = new EFDatabaseContextAdapter(_context);
+            var uow = new UnitOfWork(adapter, _dispatcherMock.Object);
+
             _context.Entities.Add(new FakeEntity("A"));
             var entity = new FakeEntity("B");
             _context.Entities.Add(entity);
@@ -129,5 +140,4 @@ namespace Joaoaalves.FastCQRS.Infrastructure.Tests.PersistenceTests
             Assert.Equal(0, changes);
         }
     }
-
 }

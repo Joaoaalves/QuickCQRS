@@ -1,10 +1,10 @@
-using Joaoaalves.FastCQRS.Application.Commands;
-using Joaoaalves.FastCQRS.Application.Execution;
-using Joaoaalves.FastCQRS.Infrastructure.Processing;
+using Joaoaalves.FastCQRS.Abstractions.Commands;
+using Joaoaalves.FastCQRS.Abstractions.Processing;
+using Joaoaalves.FastCQRS.Core.Processing;
 using Microsoft.Extensions.DependencyInjection;
 using Moq;
 
-namespace Joaoaalves.FastCQRS.Infrastructure.Tests.ProcessingTests
+namespace Joaoaalves.FastCQRS.Core.Tests.ProcessingTests
 {
     public class CommandsExecutorTests
     {
