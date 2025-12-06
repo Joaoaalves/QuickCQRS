@@ -16,4 +16,18 @@
     <ProjectReference Include="..\Joaoaalves.FastCQRS.Persistence\Joaoaalves.FastCQRS.Persistence.csproj" />
   </ItemGroup>
 
+  <PropertyGroup>
+      <PackageId>Joaoaalves.FastCQRS.Persistence.EntityFramework</PackageId>
+      <Version>0.0.1</Version>
+      <Authors>João Alves</Authors>
+      <Company>João Alves</Company>
+      <Description>FastCQRS Adds CQRS, Mediator</Description>
+      <PackageTags>EntityFramework; CQRS; Mediator;</PackageTags>
+      <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
+
+      <RepositoryUrl>https://github.com/Joaoaalves/FastCQRS</RepositoryUrl>
+      <PackageProjectUrl>https://github.com/Joaoaalves/FastCQRS</PackageProjectUrl>
+      <RepositoryType>git</RepositoryType>
+  </PropertyGroup>
+
 </Project>
