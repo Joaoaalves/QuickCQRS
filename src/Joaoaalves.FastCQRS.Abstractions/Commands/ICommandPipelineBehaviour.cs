@@ -1,4 +1,4 @@
-namespace Joaoaalves.FastCQRS.Application.Commands
+namespace Joaoaalves.FastCQRS.Abstractions.Commands
 {
     public interface ICommandPipelineBehaviour<TCommand, TResult>
         where TCommand : ICommand<TResult>

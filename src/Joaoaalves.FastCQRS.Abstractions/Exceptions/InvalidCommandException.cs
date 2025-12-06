@@ -1,4 +1,4 @@
-﻿namespace Joaoaalves.FastCQRS.Application.Validation
+﻿namespace Joaoaalves.FastCQRS.Abstractions.Exceptions
 {
     public class InvalidCommandException(string message, string details) : Exception(message)
     {

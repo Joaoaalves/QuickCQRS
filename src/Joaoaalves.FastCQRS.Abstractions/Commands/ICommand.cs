@@ -1,7 +1,6 @@
+using Joaoaalves.FastCQRS.Abstractions.Requests;
 
-using Joaoaalves.FastCQRS.Domain.Requests;
-
-namespace Joaoaalves.FastCQRS.Application.Commands
+namespace Joaoaalves.FastCQRS.Abstractions.Commands
 {
     public interface ICommand : IRequest<Unit>
     {

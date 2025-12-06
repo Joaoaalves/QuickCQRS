@@ -1,6 +1,4 @@
-using Joaoaalves.FastCQRS.Domain.Notifications;
-
-namespace Joaoaalves.FastCQRS.Application.DomainEvents
+namespace Joaoaalves.FastCQRS.Abstractions.Notifications
 {
     public interface IDomainEventNotification<TEventType> : IDomainEventNotification
     {

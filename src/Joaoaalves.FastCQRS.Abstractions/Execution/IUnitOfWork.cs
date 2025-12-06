@@ -1,4 +1,4 @@
-namespace Joaoaalves.FastCQRS.Application.Execution
+namespace Joaoaalves.FastCQRS.Abstractions.Execution
 {
     public interface IUnitOfWork
     {

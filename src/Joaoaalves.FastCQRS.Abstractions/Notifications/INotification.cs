@@ -1,4 +1,4 @@
-namespace Joaoaalves.FastCQRS.Domain.Notifications
+namespace Joaoaalves.FastCQRS.Abstractions.Notifications
 {
     /// <summary>
     /// Marker interface for domain events and notifications.

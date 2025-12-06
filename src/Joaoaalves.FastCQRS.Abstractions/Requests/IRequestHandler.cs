@@ -1,4 +1,4 @@
-namespace Joaoaalves.FastCQRS.Domain.Requests
+namespace Joaoaalves.FastCQRS.Abstractions.Requests
 {
     public interface IRequestHandler<in TRequest, TResponse> where TRequest : IRequest<TResponse>
     {
