@@ -36,7 +36,6 @@ namespace Joaoaalves.FastCQRS.Core.Processing
                 handlerDelegate,
                 (next, behavior) => (cmd) => behavior.Handle(cmd, next, CancellationToken.None)
             );
-
             return await pipeline(command);
         }
 

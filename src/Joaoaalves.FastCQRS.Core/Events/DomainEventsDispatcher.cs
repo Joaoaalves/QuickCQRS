@@ -20,7 +20,6 @@ namespace Joaoaalves.FastCQRS.Core.Events
         public async Task DispatchEventsAsync()
         {
             var events = _provider.CollectDomainEvents();
-
             _provider.ClearCollectedDomainEvents();
 
             foreach (var domainEvent in events)

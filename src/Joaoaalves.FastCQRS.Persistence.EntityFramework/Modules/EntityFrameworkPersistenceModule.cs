@@ -12,7 +12,12 @@ namespace Joaoaalves.FastCQRS.Persistence.EntityFramework.Modules
         public static IServiceCollection AddEfUnitOfWork<TDbContext>(this IServiceCollection services)
             where TDbContext : DbContext
         {
-            services.AddScoped<IDatabaseContext, EFDatabaseContextAdapter>();
+            services.AddScoped<IDatabaseContext>(sp =>
+            {
+                var dbContext = sp.GetRequiredService<TDbContext>();
+                return new EFDatabaseContextAdapter(dbContext);
+            });
+            
             services.AddUnitOfWork();
             services.AddScoped<DbContext, TDbContext>();
             services.AddScoped<IDomainEventsProvider, EFDomainEventsProvider>();

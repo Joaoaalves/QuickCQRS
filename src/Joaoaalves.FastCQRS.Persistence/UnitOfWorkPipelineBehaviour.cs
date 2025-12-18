@@ -10,24 +10,22 @@ namespace Joaoaalves.FastCQRS.Persistence
     /// </summary>
     /// <typeparam name="TRequest">The command type.</typeparam>
     /// <typeparam name="TResponse">The response type.</typeparam>
-    public class UnitOfWorkPipelineBehavior<TRequest, TResponse>(IServiceProvider serviceProvider) : IRequestPipelineBehavior<TRequest, TResponse>
+    public class UnitOfWorkPipelineBehavior<TRequest, TResponse>(IUnitOfWork unitOfWork) : IRequestPipelineBehavior<TRequest, TResponse>
         where TRequest : ICommand<TResponse>
     {
-        private readonly IServiceProvider _serviceProvider = serviceProvider;
-
+        private readonly IUnitOfWork _uow = unitOfWork;
         /// <inheritdoc />
         public async Task<TResponse> Handle(TRequest request, Func<Task<TResponse>> next, CancellationToken cancellationToken)
         {
-            var uow = _serviceProvider.GetRequiredService<IUnitOfWork>();
             try
             {
                 var result = await next();
-                await uow.CommitAsync(cancellationToken);
+                var res = await _uow.CommitAsync(cancellationToken);
                 return result;
             }
             catch
             {
-                await uow.RevertAsync();
+                await _uow.RevertAsync();
                 throw;
             }
         }

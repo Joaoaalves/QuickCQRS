@@ -29,7 +29,6 @@ namespace Joaoaalves.FastCQRS.Core.Validation
                 if (failures.Count != 0)
                     throw new InvalidCommandException(failures[0].ErrorMessage, failures[0].ErrorMessage);
             }
-
             return await next();
         }
     }

@@ -34,7 +34,7 @@ namespace Joaoaalves.FastCQRS.Core.Modules
 
             services.AddScoped<CommandsExecutor>();
             services.AddScoped<QueriesExecutor>();
-
+ 
             services.AddScoped(typeof(IRequestPipelineBehavior<,>), typeof(CommandValidationBehavior<,>));
 
             return services;
