@@ -17,10 +17,15 @@ namespace Joaoaalves.FastCQRS.Persistence.EntityFramework.Modules
                 var dbContext = sp.GetRequiredService<TDbContext>();
                 return new EFDatabaseContextAdapter(dbContext);
             });
-            
+
             services.AddUnitOfWork();
             services.AddScoped<DbContext, TDbContext>();
-            services.AddScoped<IDomainEventsProvider, EFDomainEventsProvider>();
+            services.AddScoped<IDomainEventsProvider>(sp =>
+            {
+                var dbContext = sp.GetRequiredService<TDbContext>();
+                return new EFDomainEventsProvider(dbContext);
+            });
+            
             return services;
         }
     }
