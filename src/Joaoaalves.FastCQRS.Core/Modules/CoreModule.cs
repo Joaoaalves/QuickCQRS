@@ -20,12 +20,15 @@ namespace Joaoaalves.FastCQRS.Core.Modules
         /// <param name="services">The service collection.</param>
         /// <param name="args">Assemblies or assembly name prefixes to scan for handlers.</param>
         /// <returns>The updated <see cref="IServiceCollection"/>.</returns>
-        public static IServiceCollection AddFastCQRS(this IServiceCollection services, params object[] args)
+        public static IServiceCollection AddFastCQRS(this IServiceCollection services, Action<FastCQRSOptions>? configure = null)
         {
+            var options = new FastCQRSOptions();
+            configure?.Invoke(options);
+
             services.AddScoped<IMediator, Mediator>();
             services.AddScoped<IDomainEventsDispatcher, DomainEventsDispatcher>();
 
-            var assemblies = ResolveAssemblies(args);
+            var assemblies = ResolveAssemblies(options);
             RegisterHandlers(services, assemblies, typeof(INotificationHandler<>));
             RegisterHandlers(services, assemblies, typeof(IRequestHandler<,>));
 
@@ -42,31 +45,24 @@ namespace Joaoaalves.FastCQRS.Core.Modules
         /// </summary>
         /// <param name="args">Can be an array of assemblies or string prefixes.</param>
         /// <returns>An array of resolved assemblies.</returns>
-        public static Assembly[] ResolveAssemblies(object[] args)
+        public static Assembly[] ResolveAssemblies(FastCQRSOptions options)
         {
-            if (args == null || args.Length == 0)
-                return AppDomain.CurrentDomain
-                    .GetAssemblies()
-                    .Where(a => !a.IsDynamic && !string.IsNullOrWhiteSpace(a.FullName))
-                    .ToArray();
-
-            if (args.All(a => a is Assembly))
-                return args.Cast<Assembly>().ToArray();
-
-            if (args.All(a => a is string))
+            if (options.Assemblies.Length != 0)
             {
-                var prefixes = args.Cast<string>().ToArray();
+                // Force load assemblies
+                foreach (var assembly in options.Assemblies)
+                {
+                    _ = assembly.GetTypes();
+                }
 
-                return AppDomain.CurrentDomain
-                    .GetAssemblies()
-                    .Where(a =>
-                        !a.IsDynamic &&
-                        !string.IsNullOrWhiteSpace(a.FullName) &&
-                        prefixes.Any(p => a.FullName!.StartsWith(p))
-                    ).ToArray();
+                return [.. options.Assemblies.Distinct()];
             }
 
-            throw new ArgumentException("Invalid Parameters for AddMediatorModule.");
+            // Fallback to all loaded assemblies
+            return AppDomain.CurrentDomain
+                .GetAssemblies()
+                .Where(a => !a.IsDynamic && !string.IsNullOrWhiteSpace(a.FullName))
+                .ToArray();
         }
 
         /// <summary>
@@ -83,9 +79,9 @@ namespace Joaoaalves.FastCQRS.Core.Modules
                 var interfaces = type.GetInterfaces()
                     .Where(i => i.IsGenericType && i.GetGenericTypeDefinition() == handlerInterface);
 
-                foreach (var intrfc in interfaces)
+                foreach (var @interface in interfaces)
                 {
-                    services.AddTransient(intrfc, type);
+                    services.AddTransient(@interface, type);
                 }
             }
         }
