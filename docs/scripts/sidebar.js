@@ -4,10 +4,18 @@ function highlightSidebarItem() {
 
     sidebarItems.forEach(item => {
         const itemPath = item.getAttribute('data-path');
-        if (itemPath === currentPath || currentPath.endsWith(itemPath)) {
+        if (itemPath === currentPath) {
             item.classList.add('active');
         }
     });
 }
 
-document.addEventListener('DOMContentLoaded', highlightSidebarItem);
+document.addEventListener("DOMContentLoaded", () => {
+    fetch("./components/sidebar.html")
+        .then(response => response.text())
+        .then(html => {
+            document.getElementById("sidebar").innerHTML = html;
+            highlightSidebarItem();
+        })
+        .catch(err => console.error("Error loading sidebar:", err));
+});

@@ -6,7 +6,19 @@
     gap: 20px;
     min-height: 100vh;
     width: 100vw;
-    box-sizing: border-box;
     background-color: var(--color-base-100);
     padding: 12px;
+}
+
+#sidebar{
+    height: 100%;
+}
+
+body{
+    overflow-x: hidden;
+}
+
+main{
+    background-color: var(--color-base-200);
+    border-radius: 8px;
 }
