@@ -21,4 +21,12 @@ body{
 main{
     background-color: var(--color-base-200);
     border-radius: 8px;
+    padding: 16px;
+}
+
+article{
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    width: 50%;
 }
