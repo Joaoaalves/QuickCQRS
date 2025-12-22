@@ -19,4 +19,3 @@
             - [Validation Pipeline](validation-pipeline.md)
     - [Unit of Work](uow.md)
     - [EntityFramework Core](efcore.md)
-    - [FluentValidation](fluentvalidation.md)
