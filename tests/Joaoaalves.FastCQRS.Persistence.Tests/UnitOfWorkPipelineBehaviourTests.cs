@@ -1,6 +1,5 @@
 using Joaoaalves.FastCQRS.Abstractions.Commands;
 using Joaoaalves.FastCQRS.Abstractions.Processing;
-using Microsoft.Extensions.DependencyInjection;
 using Moq;
 
 namespace Joaoaalves.FastCQRS.Persistence.Tests
@@ -8,15 +7,10 @@ namespace Joaoaalves.FastCQRS.Persistence.Tests
     public class UnitOfWorkPipelineBehaviorTests
     {
         private readonly Mock<IUnitOfWork> _uowMock;
-        private readonly ServiceProvider _serviceProvider;
 
         public UnitOfWorkPipelineBehaviorTests()
         {
             _uowMock = new Mock<IUnitOfWork>();
-
-            var services = new ServiceCollection();
-            services.AddSingleton(_uowMock.Object);
-            _serviceProvider = services.BuildServiceProvider();
         }
 
         private record TestCommand(Guid Id) : ICommand<Unit>;
@@ -25,7 +19,7 @@ namespace Joaoaalves.FastCQRS.Persistence.Tests
         public async Task Handle_WhenCommandSucceeds_ShouldCommit()
         {
             // Arrange
-            var behavior = new UnitOfWorkPipelineBehavior<TestCommand, Unit>(_serviceProvider);
+            var behavior = new UnitOfWorkPipelineBehavior<TestCommand, Unit>(_uowMock.Object);
             var command = new TestCommand(Guid.NewGuid());
 
             Task<Unit> Next() => Task.FromResult(Unit.Value);
@@ -44,7 +38,7 @@ namespace Joaoaalves.FastCQRS.Persistence.Tests
         public async Task Handle_WhenCommandThrows_ShouldRevert()
         {
             // Arrange
-            var behavior = new UnitOfWorkPipelineBehavior<TestCommand, Unit>(_serviceProvider);
+            var behavior = new UnitOfWorkPipelineBehavior<TestCommand, Unit>(_uowMock.Object);
             var command = new TestCommand(Guid.NewGuid());
 
             Task<Unit> Next() => throw new InvalidOperationException("Test exception");
