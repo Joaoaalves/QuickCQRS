@@ -10,7 +10,7 @@
     * [CQRS](cqrs.md)
         - [Commands](commands.md)
         - [Queries](queries.md)
-        - [Notifications (Events)](notifications.md)
+        - [Notifications | Domain Events](notifications.md)
     - [Mediator](mediator.md)
     - [Unit of Work](uow.md)
     - [EntityFramework Core](efcore.md)
