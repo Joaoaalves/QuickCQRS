@@ -16,7 +16,9 @@ namespace Joaoaalves.FastCQRS.Core.Processing
         public async Task<TResponse> Send<TResponse>(IRequest<TResponse> request, CancellationToken cancellationToken = default)
         {
             var handlerType = typeof(IRequestHandler<,>).MakeGenericType(request.GetType(), typeof(TResponse));
-            var handler = _provider.GetService(handlerType);
+            var handler = _provider.GetService(handlerType) ?? throw new InvalidOperationException(
+                $"No handler registered for request type {request.GetType().Name}"
+            );
 
             var handleMethod = handlerType.GetMethod("Handle");
 
