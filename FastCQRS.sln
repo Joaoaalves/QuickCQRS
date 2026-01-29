@@ -7,19 +7,19 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "src", "src", "{827E0CD3-B72
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "tests", "tests", "{0AB3BF05-4346-4AA6-1389-037BE0695223}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Joaoaalves.FastCQRS.Abstractions", "src\Joaoaalves.FastCQRS.Abstractions\Joaoaalves.FastCQRS.Abstractions.csproj", "{4105D3B0-255A-4332-8D65-ECF4BB62AE4A}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Joaoaalves.QuickCQRS.Abstractions", "src\Joaoaalves.QuickCQRS.Abstractions\Joaoaalves.QuickCQRS.Abstractions.csproj", "{4105D3B0-255A-4332-8D65-ECF4BB62AE4A}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Joaoaalves.FastCQRS.Core", "src\Joaoaalves.FastCQRS.Core\Joaoaalves.FastCQRS.Core.csproj", "{2412C919-258D-4FCE-819A-7380F7C00B45}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Joaoaalves.QuickCQRS.Core", "src\Joaoaalves.QuickCQRS.Core\Joaoaalves.QuickCQRS.Core.csproj", "{2412C919-258D-4FCE-819A-7380F7C00B45}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Joaoaalves.FastCQRS.Persistence", "src\Joaoaalves.FastCQRS.Persistence\Joaoaalves.FastCQRS.Persistence.csproj", "{894D364D-3025-4FC1-9EC1-2D04849DC2D3}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Joaoaalves.QuickCQRS.Persistence", "src\Joaoaalves.QuickCQRS.Persistence\Joaoaalves.QuickCQRS.Persistence.csproj", "{894D364D-3025-4FC1-9EC1-2D04849DC2D3}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Joaoaalves.FastCQRS.Persistence.EntityFramework", "src\Joaoaalves.FastCQRS.Persistence.EntityFramework\Joaoaalves.FastCQRS.Persistence.EntityFramework.csproj", "{B85A54BF-FD0E-415F-8582-617EFEB49B81}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Joaoaalves.QuickCQRS.Persistence.EntityFramework", "src\Joaoaalves.QuickCQRS.Persistence.EntityFramework\Joaoaalves.QuickCQRS.Persistence.EntityFramework.csproj", "{B85A54BF-FD0E-415F-8582-617EFEB49B81}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Joaoaalves.FastCQRS.Core.Tests", "tests\Joaoaalves.FastCQRS.Core.Tests\Joaoaalves.FastCQRS.Core.Tests.csproj", "{2DCD0AC5-7642-48CC-B207-E53A10DD8988}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Joaoaalves.QuickCQRS.Core.Tests", "tests\Joaoaalves.QuickCQRS.Core.Tests\Joaoaalves.QuickCQRS.Core.Tests.csproj", "{2DCD0AC5-7642-48CC-B207-E53A10DD8988}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Joaoaalves.FastCQRS.Persistence.EntityFramework.Tests", "tests\Joaoaalves.FastCQRS.Persistence.EntityFramework.Tests\Joaoaalves.FastCQRS.Persistence.EntityFramework.Tests.csproj", "{5D9862F4-CBA5-4464-BE89-5231B14B33D3}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Joaoaalves.QuickCQRS.Persistence.EntityFramework.Tests", "tests\Joaoaalves.QuickCQRS.Persistence.EntityFramework.Tests\Joaoaalves.QuickCQRS.Persistence.EntityFramework.Tests.csproj", "{5D9862F4-CBA5-4464-BE89-5231B14B33D3}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Joaoaalves.FastCQRS.Persistence.Tests", "tests\Joaoaalves.FastCQRS.Persistence.Tests\Joaoaalves.FastCQRS.Persistence.Tests.csproj", "{1706123D-ECDA-411E-B56E-360FB84D0273}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Joaoaalves.QuickCQRS.Persistence.Tests", "tests\Joaoaalves.QuickCQRS.Persistence.Tests\Joaoaalves.QuickCQRS.Persistence.Tests.csproj", "{1706123D-ECDA-411E-B56E-360FB84D0273}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

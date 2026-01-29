@@ -7,8 +7,8 @@ Domain events represent **facts that occurred inside the domain** and are dispat
 ### Domain Event Handler
 
 ```csharp
-using Joaoaalves.FastCQRS.Abstractions.Notifications;
-using Joaoaalves.FastCQRS.Core.Events;
+using Joaoaalves.QuickCQRS.Abstractions.Notifications;
+using Joaoaalves.QuickCQRS.Core.Events;
 using Example.Domain.Notes.Events;
 
 namespace Example.Application.Notes.Events.NoteCreatedEvent

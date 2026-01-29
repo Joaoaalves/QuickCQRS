@@ -1,0 +1,32 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>net10.0</TargetFramework>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <Nullable>enable</Nullable>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Joaoaalves.DDD" Version="0.0.1" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore" Version="10.0.0" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\Joaoaalves.QuickCQRS.Persistence\Joaoaalves.QuickCQRS.Persistence.csproj" />
+  </ItemGroup>
+
+  <PropertyGroup>
+      <PackageId>Joaoaalves.QuickCQRS.Persistence.EntityFramework</PackageId>
+      <Version>0.0.1</Version>
+      <Authors>João Alves</Authors>
+      <Company>João Alves</Company>
+      <Description>QuickCQRS Adds CQRS, Mediator</Description>
+      <PackageTags>EntityFramework; CQRS; Mediator;</PackageTags>
+      <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
+
+      <RepositoryUrl>https://github.com/Joaoaalves/QuickCQRS</RepositoryUrl>
+      <PackageProjectUrl>https://github.com/Joaoaalves/QuickCQRS</PackageProjectUrl>
+      <RepositoryType>git</RepositoryType>
+  </PropertyGroup>
+
+</Project>

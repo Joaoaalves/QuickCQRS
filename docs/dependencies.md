@@ -1,10 +1,10 @@
 # Dependencies
 
-This section lists the **direct dependencies added to a project** when referencing each FastCQRS package.
+This section lists the **direct dependencies added to a project** when referencing each QuickCQRS package.
 
 ---
 
-## Joaoaalves.FastCQRS.Abstractions
+## Joaoaalves.QuickCQRS.Abstractions
 
 **Purpose:**
 Defines the core contracts shared across the library (commands, queries, notifications, handlers, unit of work interfaces).
@@ -15,7 +15,7 @@ Defines the core contracts shared across the library (commands, queries, notific
 
 ---
 
-## Joaoaalves.FastCQRS.Core
+## Joaoaalves.QuickCQRS.Core
 
 **Purpose:**
 Provides the CQRS execution pipeline, mediator implementation, handler resolution, and validation integration.
@@ -28,7 +28,7 @@ Provides the CQRS execution pipeline, mediator implementation, handler resolutio
 
 ---
 
-## Joaoaalves.FastCQRS.Persistence
+## Joaoaalves.QuickCQRS.Persistence
 
 **Purpose:**
 Defines persistence-related abstractions and base implementations that are independent of any specific ORM.
@@ -40,7 +40,7 @@ Defines persistence-related abstractions and base implementations that are indep
 
 ---
 
-## Joaoaalves.FastCQRS.Persistence.EntityFramework
+## Joaoaalves.QuickCQRS.Persistence.EntityFramework
 
 **Purpose:**
 Provides Entity Framework Core–specific implementations, including Unit of Work coordination and domain event extraction.

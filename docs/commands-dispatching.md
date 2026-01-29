@@ -50,6 +50,6 @@ If more than one handler is registered for the same command type, this is treate
 * Application startup or first resolution fails
 * Dependency Injection throws an exception
 
-FastCQRS enforces **exactly one handler per command**.
+QuickCQRS enforces **exactly one handler per command**.
 
 ---

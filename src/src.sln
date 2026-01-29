@@ -2,11 +2,11 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.5.2.0
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Joaoaalves.FastCQRS.Application", "Joaoaalves.FastCQRS.Application\Joaoaalves.FastCQRS.Application.csproj", "{D46D0940-EE83-F9B4-D49F-93A3A24CA7C1}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Joaoaalves.QuickCQRS.Application", "Joaoaalves.QuickCQRS.Application\Joaoaalves.QuickCQRS.Application.csproj", "{D46D0940-EE83-F9B4-D49F-93A3A24CA7C1}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Joaoaalves.FastCQRS.Domain", "Joaoaalves.FastCQRS.Domain\Joaoaalves.FastCQRS.Domain.csproj", "{B898F4C3-0A46-DBF1-F866-E3A5F3353555}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Joaoaalves.QuickCQRS.Domain", "Joaoaalves.QuickCQRS.Domain\Joaoaalves.QuickCQRS.Domain.csproj", "{B898F4C3-0A46-DBF1-F866-E3A5F3353555}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Joaoaalves.FastCQRS.Infrastructure", "Joaoaalves.FastCQRS.Infrastructure\Joaoaalves.FastCQRS.Infrastructure.csproj", "{788F8FBD-A409-C9BF-6086-1F836C6073CD}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Joaoaalves.QuickCQRS.Infrastructure", "Joaoaalves.QuickCQRS.Infrastructure\Joaoaalves.QuickCQRS.Infrastructure.csproj", "{788F8FBD-A409-C9BF-6086-1F836C6073CD}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

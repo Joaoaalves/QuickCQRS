@@ -1,15 +1,15 @@
 # Quickstart
 
-This section describes the **minimum configuration required** to use FastCQRS in a real application.
+This section describes the **minimum configuration required** to use QuickCQRS in a real application.
 The goal is to make explicit **what must be configured** and **why**, avoiding hidden behavior.
 
-FastCQRS is split across multiple packages. Each layer should reference **only the abstractions it needs**, while **infrastructure or API layers** are responsible for wiring everything together.
+QuickCQRS is split across multiple packages. Each layer should reference **only the abstractions it needs**, while **infrastructure or API layers** are responsible for wiring everything together.
 
 ---
 
 ## Installation (GitHub Packages)
 
-At the moment, FastCQRS packages are hosted on **GitHub Packages**.
+At the moment, QuickCQRS packages are hosted on **GitHub Packages**.
 
 ### 1. Configure NuGet Source
 
@@ -34,7 +34,7 @@ Create or update your `NuGet.config`:
 The token must have at least the `read:packages` permission.
 
 Repository:
-[https://github.com/Joaoaalves/FastCQRS](https://github.com/Joaoaalves/FastCQRS)
+[https://github.com/Joaoaalves/QuickCQRS](https://github.com/Joaoaalves/QuickCQRS)
 
 ---
 
@@ -44,13 +44,13 @@ A typical Clean Architecture setup would look like this:
 
 ### Application Layer
 
-* `Joaoaalves.FastCQRS.Abstractions`
-* `Joaoaalves.FastCQRS.Core`
+* `Joaoaalves.QuickCQRS.Abstractions`
+* `Joaoaalves.QuickCQRS.Core`
 
 ### Infrastructure Layer (Persistence)
 
-* `Joaoaalves.FastCQRS.Persistence`
-* `Joaoaalves.FastCQRS.Persistence.EntityFramework`
+* `Joaoaalves.QuickCQRS.Persistence`
+* `Joaoaalves.QuickCQRS.Persistence.EntityFramework`
 
 ### API / Composition Root
 
@@ -60,7 +60,7 @@ A typical Clean Architecture setup would look like this:
 
 ## Core Configuration (Mandatory)
 
-FastCQRS requires the application to **explicitly expose the assemblies** that contain:
+QuickCQRS requires the application to **explicitly expose the assemblies** that contain:
 
 * Commands
 * Queries
@@ -74,7 +74,7 @@ This is done via the **Core module**.
 ### Core Module Registration
 
 ```csharp
-using Joaoaalves.FastCQRS.Core.Modules;
+using Joaoaalves.QuickCQRS.Core.Modules;
 
 services.AddFastCQRS(options =>
 {
@@ -108,7 +108,7 @@ Internally, it registers:
 
 ### Assembly Resolution Rules
 
-FastCQRS resolves assemblies as follows:
+QuickCQRS resolves assemblies as follows:
 
 1. If assemblies are explicitly provided via `FastCQRSOptions`, they are:
 
@@ -131,7 +131,7 @@ If your application uses Entity Framework Core, you must explicitly register the
 ### EF Unit of Work Registration
 
 ```csharp
-using Joaoaalves.FastCQRS.Persistence.EntityFramework.Modules;
+using Joaoaalves.QuickCQRS.Persistence.EntityFramework.Modules;
 
 services.AddEfUnitOfWork<AppDbContext>();
 ```
@@ -192,7 +192,7 @@ This is sufficient to:
 | Infrastructure | EF Core, persistence implementations   |
 | API / Host     | Module registration and composition    |
 
-FastCQRS intentionally keeps these responsibilities **explicit and separate**.
+QuickCQRS intentionally keeps these responsibilities **explicit and separate**.
 
 ---
 

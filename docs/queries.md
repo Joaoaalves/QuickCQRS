@@ -7,7 +7,7 @@ Queries represent **read-only requests** and must not mutate application state.
 ### Query Definition
 
 ```csharp
-using Joaoaalves.FastCQRS.Abstractions.Queries;
+using Joaoaalves.QuickCQRS.Abstractions.Queries;
 using Example.Domain.Notes;
 
 namespace Example.Application.Notes.Queries.ListNotes
@@ -29,7 +29,7 @@ Key points:
 ### Query Handler
 
 ```csharp
-using Joaoaalves.FastCQRS.Abstractions.Queries;
+using Joaoaalves.QuickCQRS.Abstractions.Queries;
 using Example.Domain.Notes;
 
 namespace Example.Application.Notes.Queries.ListNotes

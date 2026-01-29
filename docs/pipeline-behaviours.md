@@ -1,6 +1,6 @@
 ## Pipeline Behaviors
 
-FastCQRS supports request pipeline behaviors via:
+QuickCQRS supports request pipeline behaviors via:
 
 ```csharp
 IRequestPipelineBehavior<TRequest, TResult>
