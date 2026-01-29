@@ -66,7 +66,7 @@ This guarantees that side effects are never triggered if persistence fails.
 * Commands **must not** return entities
 * Queries **must not** change state
 * Notification handlers **must not** rely on transactional context
-* All handlers must live in assemblies registered in `AddFastCQRS`
+* All handlers must live in assemblies registered in `AddQuickCQRS`
 
 These constraints are intentional and enforce architectural clarity.
 

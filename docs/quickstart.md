@@ -76,7 +76,7 @@ This is done via the **Core module**.
 ```csharp
 using Joaoaalves.QuickCQRS.Core.Modules;
 
-services.AddFastCQRS(options =>
+services.AddQuickCQRS(options =>
 {
     options.AddAssembly<ApplicationAssemblyMarker>();
 });
@@ -88,7 +88,7 @@ Using a marker type is the recommended approach to ensure that the correct appli
 
 ### What the Core Module Does
 
-The `AddFastCQRS` extension method configures:
+The `AddQuickCQRS` extension method configures:
 
 * The internal Mediator
 * Command and query executors
@@ -110,7 +110,7 @@ Internally, it registers:
 
 QuickCQRS resolves assemblies as follows:
 
-1. If assemblies are explicitly provided via `FastCQRSOptions`, they are:
+1. If assemblies are explicitly provided via `QuickCQRSOptions`, they are:
 
    * Forced to load
    * Used exclusively for handler scanning
@@ -165,7 +165,7 @@ services.AddDbContext<AppDbContext>(options =>
     options.UseSqlServer(connectionString);
 });
 
-services.AddFastCQRS(options =>
+services.AddQuickCQRS(options =>
 {
     options.AddAssembly<ApplicationAssemblyMarker>();
 });

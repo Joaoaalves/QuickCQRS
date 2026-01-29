@@ -20,9 +20,9 @@ namespace Joaoaalves.QuickCQRS.Core.Modules
         /// <param name="services">The service collection.</param>
         /// <param name="args">Assemblies or assembly name prefixes to scan for handlers.</param>
         /// <returns>The updated <see cref="IServiceCollection"/>.</returns>
-        public static IServiceCollection AddFastCQRS(this IServiceCollection services, Action<FastCQRSOptions>? configure = null)
+        public static IServiceCollection AddQuickCQRS(this IServiceCollection services, Action<QuickCQRSOptions>? configure = null)
         {
-            var options = new FastCQRSOptions();
+            var options = new QuickCQRSOptions();
             configure?.Invoke(options);
 
             services.AddScoped<IMediator, Mediator>();
@@ -45,7 +45,7 @@ namespace Joaoaalves.QuickCQRS.Core.Modules
         /// </summary>
         /// <param name="args">Can be an array of assemblies or string prefixes.</param>
         /// <returns>An array of resolved assemblies.</returns>
-        public static Assembly[] ResolveAssemblies(FastCQRSOptions options)
+        public static Assembly[] ResolveAssemblies(QuickCQRSOptions options)
         {
             if (options.Assemblies.Length != 0)
             {

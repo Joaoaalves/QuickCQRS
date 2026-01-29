@@ -2,7 +2,7 @@ using System.Reflection;
 
 namespace Joaoaalves.QuickCQRS.Core.Modules
 {
-    public sealed class FastCQRSOptions
+    public sealed class QuickCQRSOptions
     {
         internal List<Assembly> AssembliesInternal { get; } = [];
         /// <summary>

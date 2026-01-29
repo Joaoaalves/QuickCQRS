@@ -15,7 +15,7 @@ This ensures that invalid state never reaches the domain.
 All handlers must be discoverable via assemblies registered in:
 
 ```csharp
-services.AddFastCQRS(options =>
+services.AddQuickCQRS(options =>
 {
     options.AddAssembly<ApplicationAssemblyMarker>();
 });

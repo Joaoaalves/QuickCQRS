@@ -8,4 +8,4 @@ QuickCQRS distinguishes explicitly between:
 * **[Queries](queries.md)** → read-only operations
 * **[Notifications (Domain Events)](notifications.md)** → side effects after successful commits
 
-All of them are resolved via assembly scanning configured in `AddFastCQRS`.
+All of them are resolved via assembly scanning configured in `AddQuickCQRS`.
