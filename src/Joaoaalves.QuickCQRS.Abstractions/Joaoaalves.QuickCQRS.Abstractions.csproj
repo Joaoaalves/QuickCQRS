@@ -8,7 +8,7 @@
 
     <PropertyGroup>
       <PackageId>Joaoaalves.QuickCQRS.Abstractions</PackageId>
-      <Version>0.0.3</Version>
+      <Version>0.0.1</Version>
       <Authors>João Alves</Authors>
       <Company>João Alves</Company>
       <Description>QuickCQRS Adds CQRS, Mediator</Description>
