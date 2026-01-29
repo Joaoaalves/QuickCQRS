@@ -1,6 +1,6 @@
 <!-- markdownlint-disable  -->
 
-* FastCQRS
+* QuickCQRS
 
     - [Introduction](README.md)
     - [Dependencies](dependencies.md)

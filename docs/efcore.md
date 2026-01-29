@@ -14,7 +14,7 @@ The EF Core integration is designed to:
 * Integrate seamlessly with the Unit of Work pipeline
 * Preserve Clean Architecture boundaries
 
-FastCQRS treats EF Core as an **implementation detail**, not as a core dependency.
+QuickCQRS treats EF Core as an **implementation detail**, not as a core dependency.
 
 ---
 
@@ -27,7 +27,7 @@ EF Core integration is enabled via an explicit module.
 ### EntityFrameworkPersistenceModule
 
 ```csharp
-using Joaoaalves.FastCQRS.Persistence.EntityFramework.Modules;
+using Joaoaalves.QuickCQRS.Persistence.EntityFramework.Modules;
 
 services.AddEfUnitOfWork<AppDbContext>();
 ```
@@ -43,7 +43,7 @@ Calling `AddEfUnitOfWork<TDbContext>` registers:
 | Service                 | Implementation              |
 | ----------------------- | --------------------------- |
 | `IDatabaseContext`      | `EFDatabaseContextAdapter`  |
-| `IUnitOfWork`           | Default FastCQRS UnitOfWork |
+| `IUnitOfWork`           | Default QuickCQRS UnitOfWork |
 | `DbContext`             | `TDbContext`                |
 | `IDomainEventsProvider` | `EFDomainEventsProvider`    |
 
@@ -53,7 +53,7 @@ All services are registered with **scoped lifetime**.
 
 ## IDatabaseContext Adapter
 
-FastCQRS abstracts persistence behind `IDatabaseContext`.
+QuickCQRS abstracts persistence behind `IDatabaseContext`.
 
 ---
 
@@ -175,7 +175,7 @@ This flow is deterministic and explicit.
 * Queries do not use EF transactions
 * Notification handlers run outside EF transactions
 
-FastCQRS does not create explicit `DbTransaction` scopes.
+QuickCQRS does not create explicit `DbTransaction` scopes.
 Transaction behavior is delegated to EF Core.
 
 ---
@@ -228,7 +228,7 @@ These concerns remain the responsibility of the consuming application.
 
 ## Summary
 
-The Entity Framework Core integration in FastCQRS:
+The Entity Framework Core integration in QuickCQRS:
 
 * Uses adapters instead of inheritance
 * Keeps EF Core out of the application layer

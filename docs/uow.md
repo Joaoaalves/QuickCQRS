@@ -1,6 +1,6 @@
 # Unit of Work
 
-FastCQRS treats the Unit of Work as an **execution concern**, not as an ORM abstraction.
+QuickCQRS treats the Unit of Work as an **execution concern**, not as an ORM abstraction.
 Its responsibility is to **coordinate persistence and domain event dispatching** in a deterministic way.
 
 ---
@@ -38,7 +38,7 @@ The abstraction is intentionally minimal:
 
 ## Default Implementation
 
-FastCQRS provides a default `UnitOfWork` implementation in the persistence layer.
+QuickCQRS provides a default `UnitOfWork` implementation in the persistence layer.
 
 ```csharp
 public class UnitOfWork(
@@ -73,7 +73,7 @@ public class UnitOfWork(
 1. Dispatches all collected domain events
 2. Persists changes via the underlying database context
 
-This ordering is **intentional** and defines the consistency model used by FastCQRS.
+This ordering is **intentional** and defines the consistency model used by QuickCQRS.
 
 ---
 
@@ -233,7 +233,7 @@ These concerns are expected to be handled by higher-level infrastructure or exte
 
 ## Summary
 
-The FastCQRS Unit of Work provides:
+The QuickCQRS Unit of Work provides:
 
 * Deterministic transactional boundaries
 * Explicit failure behavior

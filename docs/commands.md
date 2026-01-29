@@ -7,7 +7,7 @@ Commands represent **intent to change state** and always execute within a transa
 ### Command Definition
 
 ```csharp
-using Joaoaalves.FastCQRS.Core.Commands;
+using Joaoaalves.QuickCQRS.Core.Commands;
 
 namespace Example.Application.Notes.Commands.CreateNoteCommand
 {
@@ -29,7 +29,7 @@ Key points:
 ### Command Handler
 
 ```csharp
-using Joaoaalves.FastCQRS.Abstractions.Commands;
+using Joaoaalves.QuickCQRS.Abstractions.Commands;
 using Example.Domain.Notes;
 
 namespace Example.Application.Notes.Commands.CreateNoteCommand

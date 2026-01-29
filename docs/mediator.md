@@ -1,6 +1,6 @@
 # Mediator Behavior
 
-The Mediator in FastCQRS is **not a generic message bus**.
+The Mediator in QuickCQRS is **not a generic message bus**.
 It is a deterministic coordinator responsible for executing CQRS requests according to well-defined rules.
 
 ---
@@ -40,7 +40,7 @@ The Mediator supports three categories of messages:
 
 ## Failure Transparency
 
-FastCQRS intentionally avoids wrapping exceptions.
+QuickCQRS intentionally avoids wrapping exceptions.
 
 This means:
 
