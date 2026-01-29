@@ -1,0 +1,27 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>net10.0</TargetFramework>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <Nullable>enable</Nullable>
+  </PropertyGroup>
+
+    <PropertyGroup>
+      <PackageId>Joaoaalves.QuickCQRS.Abstractions</PackageId>
+      <Version>0.0.1</Version>
+      <Authors>João Alves</Authors>
+      <Company>João Alves</Company>
+      <Description>QuickCQRS Adds CQRS, Mediator</Description>
+      <PackageTags>CQRS; Mediator;</PackageTags>
+      <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
+
+      <RepositoryUrl>https://github.com/Joaoaalves/QuickCQRS</RepositoryUrl>
+      <PackageProjectUrl>https://github.com/Joaoaalves/QuickCQRS</PackageProjectUrl>
+      <RepositoryType>git</RepositoryType>
+  </PropertyGroup>
+
+    <ItemGroup>
+      <PackageReference Include="Joaoaalves.DDD" Version="0.0.1" />
+    </ItemGroup>
+
+</Project>
